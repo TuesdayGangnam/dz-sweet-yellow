@@ -1,0 +1,5 @@
+include 'common'
+include 'adapters:sweet-persistence'
+include 'adapters:sweet-web'
+include 'sweet-configuration'
+include 'sweet-application'
