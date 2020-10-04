@@ -10,9 +10,6 @@ include 'adapters:persistence:adapter-maria'
 include 'adapters:web:adapter-client-api'
 include 'adapters:web:adapter-admin-api'
 
-// config
-include 'configuration'
-
 // application
 include 'applications:client-api'
 include 'applications:admin-api'
