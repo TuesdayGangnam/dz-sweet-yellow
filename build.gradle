@@ -1,9 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.3.4.RELEASE'
-    id "org.asciidoctor.convert" version "1.5.10"
     id "io.spring.dependency-management" version "1.0.10.RELEASE"
-    id 'checkstyle'
 }
 
 // 하위 프로젝트 공유 구성.
@@ -13,6 +10,7 @@ subprojects {
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = JavaVersion.VERSION_12
 
+    apply plugin: 'java'
     apply plugin: 'java-library'
     apply plugin: 'io.spring.dependency-management'
 
@@ -20,10 +18,24 @@ subprojects {
         mavenCentral()
     }
 
-    dependencyManagement {
-        imports {
-            mavenBom("org.springframework.boot:spring-boot-dependencies:2.3.4.RELEASE")
-        }
+    dependencies {
+        testImplementation project(':test-support')
+
+        implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+        testImplementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+        testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+
+        // https://junit.org/junit5/docs/current/user-guide/
+        //@Test 등 JUnit Jupiter를 사용하여 테스트를 작성하기위한 API
+        testImplementation('org.junit.jupiter:junit-jupiter-api')
+        //매개 변수화 된 테스트를 사용 2.15.1
+        testCompileOnly('org.junit.jupiter:junit-jupiter-params')
+        testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+
+        testCompileOnly group: 'org.assertj', name: 'assertj-core', version: '3.16.0'
+        testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.3.3'
+        testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.3.3'
     }
 
 }
