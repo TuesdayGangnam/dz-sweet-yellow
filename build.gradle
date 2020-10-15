@@ -21,21 +21,34 @@ subprojects {
     dependencies {
         testImplementation project(':test-support')
 
-        implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
-        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
-        testImplementation group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
-        testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+        implementation 'org.projectlombok:lombok:1.18.12'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+        testImplementation 'org.projectlombok:lombok:1.18.12'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
         // https://junit.org/junit5/docs/current/user-guide/
         //@Test 등 JUnit Jupiter를 사용하여 테스트를 작성하기위한 API
-        testImplementation('org.junit.jupiter:junit-jupiter-api')
+        testImplementation 'org.junit.jupiter:junit-jupiter-api'
         //매개 변수화 된 테스트를 사용 2.15.1
-        testCompileOnly('org.junit.jupiter:junit-jupiter-params')
-        testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
+        testCompileOnly 'org.junit.jupiter:junit-jupiter-params'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
-        testCompileOnly group: 'org.assertj', name: 'assertj-core', version: '3.16.0'
-        testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.3.3'
-        testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.3.3'
+        testCompileOnly 'org.assertj:assertj-core:3.16.0'
+        testImplementation 'org.mockito:mockito-core:3.3.3'
+        testImplementation 'org.mockito:mockito-junit-jupiter:3.3.3'
     }
 
+    dependencyManagement {
+        imports {
+            // 특정 버전의 Maven 아티팩트에 대한 종속성을 정의 할 수 있다.
+            //https://docs.spring.io/dependency-management-plugin/docs/current-SNAPSHOT/reference/html/#dependency-management-configuration-bom-import
+            // 하위 모듈 내에서 이러한 종속성 중 하나가 필요한 경우 버전 번호가 dependencyManagement 클로저에서 로드되므로 버전 번호를 제공하지 않고 하위 모듈에서 지정할 수 있습니다.
+            // 이를 통해 Maven의 pom.xml 파일에있는 <dependencyManagement> 요소와 매우 유사하게 여러 모듈에 배포하는 대신 단일 위치에서 버전 번호를 지정할 수 있습니다.
+            mavenBom("org.springframework.boot:spring-boot-dependencies:2.3.4.RELEASE")
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
