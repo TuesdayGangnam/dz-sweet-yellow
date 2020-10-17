@@ -19,7 +19,7 @@ class SignUpControllerTest extends BaseControllerTest {
 
   @Test
   void testExample() throws Exception {
-    this.mockMvc.perform(post("/v1/com.sweet.user/sign-up")
+    this.mockMvc.perform(post("/v1/user/sign-up")
         .content("{\"userName\" : \"이지훈\", \"password\" : \"1234\"}")
         .contentType(APPLICATION_JSON)
         .accept(APPLICATION_JSON))
