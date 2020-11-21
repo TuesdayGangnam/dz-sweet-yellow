@@ -23,8 +23,8 @@ class SignUpControllerTest extends BaseControllerTest {
         .content("{\"userName\" : \"이지훈\", \"password\" : \"1234\"}")
         .contentType(APPLICATION_JSON)
         .accept(APPLICATION_JSON))
-        .andExpect(status().isCreated())
-        .andExpect(content().string("hello"));
+        .andExpect(status().isCreated());
+
   }
 
 
