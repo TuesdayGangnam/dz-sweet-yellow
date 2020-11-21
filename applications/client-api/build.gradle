@@ -1,11 +1,11 @@
-plugins {
-    id "org.springframework.boot" version "2.3.4.RELEASE"
+jar {
+    enabled = true
 }
-// 관리자 Application 을 구성하는 의존성
+
+// client Application 을 구성하는 의존성
 dependencies {
     implementation project(':domain')
     implementation project(':adapters:persistence:adapter-maria')
     implementation project(':adapters:web:adapter-client-api')
     implementation 'org.springframework.boot:spring-boot-starter'
-
 }
