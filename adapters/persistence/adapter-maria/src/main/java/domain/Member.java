@@ -16,11 +16,21 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
+    @Column(name = "auth_code")
     private int authCode;
+
     private String email;
+
     private String name;
+
+    @Column(name = "birth_day")
     private String birthDay;
+
     private String gender;
+
+    @Column(name = "phone_number")
     private String phoneNumber;
+
+    @Column(name = "is_agree_market_sns")
     private boolean isAgreeMarketSns;
 }
