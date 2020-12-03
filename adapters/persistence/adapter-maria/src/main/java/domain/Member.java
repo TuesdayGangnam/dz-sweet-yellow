@@ -31,6 +31,6 @@ public class Member {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "is_agree_market_sns")
-    private boolean isAgreeMarketSns;
+    @Column(name = "is_agree_marketing_sns")
+    private boolean isAgreeMarketingSns;
 }
