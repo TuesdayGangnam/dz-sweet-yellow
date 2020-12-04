@@ -8,7 +8,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "type")
+@DiscriminatorColumn
 public abstract class Contents {
     @Id
     @GeneratedValue
@@ -19,8 +19,6 @@ public abstract class Contents {
 
     @Column(name = "upload_url")
     private String uploadUrl;
-
-    private String type;
 
     @Column(name = "is_delete")
     private String isDelete;
