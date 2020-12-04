@@ -1,4 +1,4 @@
-package domain;
+package com.sweet.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
