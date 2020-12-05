@@ -1,10 +1,27 @@
 spring:
+  profiles:
+    active: local
+
+# local environment
+---
+spring:
+  profiles: local
   h2:
     console:
       enabled: true
       path: /h2
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:test
+    url: jdbc:h2:tcp://localhost/~/test
     username: sa
     password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show_sql: true
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    properties:
+      hibernate:
+        format_sql: true
