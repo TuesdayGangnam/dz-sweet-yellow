@@ -11,5 +11,5 @@ services:
       - ~/docker/mariadb/var/lib/mysql:/var/lib/mysql
       - ~/docker/mariadb/var/log/maria:/var/log/maria
     environment:
-      - MYSQL_ROOT_PASSWORD=???
+      - MYSQL_ROOT_PASSWORD=1234
       - TZ="Asia/Seoul"
