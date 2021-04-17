@@ -94,13 +94,6 @@ paths:
                 value:
                   mobile: '01012345678'
     parameters: []
-  /user:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-user-login
-    parameters: []
 components:
   schemas:
     User:
