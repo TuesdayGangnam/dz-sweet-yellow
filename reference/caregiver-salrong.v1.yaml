@@ -1,0 +1,146 @@
+openapi: 3.0.0
+info:
+  title: caregiver-salrong
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /user/sign-up:
+    post:
+      summary: ''
+      operationId: post-user
+      responses:
+        '201':
+          description: Created
+      description: 새로운 유저를 생성합니다.
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              description: ''
+              type: object
+              properties:
+                caregiver:
+                  type: object
+                  description: 집사 정보
+                  required:
+                    - nickName
+                    - profileImages
+                    - profileImage1
+                    - profileImage2
+                  properties:
+                    nickName:
+                      type: string
+                      description: 닉네임
+                    profileImages:
+                      type: array
+                      items: {}
+                    profileImage1:
+                      type: string
+                      format: binary
+                    profileImage2:
+                      type: string
+                      format: binary
+                pet:
+                  type: object
+                  description: 반려동물 정보 (펫 정보가 필수 입력인지 확인 필요)
+                  properties:
+                    name:
+                      type: string
+                      description: 반려동물 이름
+                    species:
+                      type: string
+                      description: 반려동물 종류
+                    gender:
+                      type: string
+                      description: 반려동물 성별
+                    age:
+                      type: number
+                      description: 반려동물 나이
+                    images:
+                      type: array
+                      items: {}
+              required:
+                - caregiver
+            examples:
+              신규 유저 가입 Request Body Example: {}
+        description: 신규 유저 생성 Request Body Example
+    parameters: []
+  /auth/login:
+    post:
+      summary: ''
+      operationId: post-auth
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '500':
+          description: Internal Server Error
+      description: 휴대폰 인증번호 요청 API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mobile:
+                  type: string
+                  pattern: '/^\d{3}-\d{3,4}-\d{4}$/;'
+            examples:
+              휴대폰 인증번호 요청 Request Body:
+                value:
+                  mobile: '01012345678'
+    parameters: []
+  /user:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-user-login
+    parameters: []
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      x-examples:
+        Alice Smith:
+          id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
