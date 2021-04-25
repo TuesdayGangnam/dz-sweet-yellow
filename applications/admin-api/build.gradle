@@ -1,3 +1,6 @@
+bootJar.enabled = true
+jar.enabled = false
+
 // 관리자 Application 을 구성하는 의존성
 dependencies {
     implementation project(':domain')

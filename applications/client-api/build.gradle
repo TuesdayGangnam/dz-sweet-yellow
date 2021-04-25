@@ -1,6 +1,5 @@
-jar {
-    enabled = true
-}
+bootJar.enabled = true
+jar.enabled = false
 
 // client Application 을 구성하는 의존성
 dependencies {
