@@ -3,6 +3,7 @@ plugins {
     id 'java-library'
     id 'org.springframework.boot' version '2.3.4.RELEASE'
     id "io.spring.dependency-management" version "1.0.10.RELEASE"
+    id "org.asciidoctor.convert" version "1.5.10"
 }
 
 // 하위 프로젝트 공유 구성.
