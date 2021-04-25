@@ -9,7 +9,7 @@ plugins {
 // 하위 프로젝트 공유 구성.
 subprojects {
 
-    group = 'com.sweet'
+    group = 'com.caregiver'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = JavaVersion.VERSION_12
 
