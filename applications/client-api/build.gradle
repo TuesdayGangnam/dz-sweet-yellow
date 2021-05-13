@@ -1,5 +1,20 @@
 apply plugin: 'org.asciidoctor.convert'
 
+bootJar.enabled = true
+jar.enabled = false
+
+// client Application 을 구성하는 의존성
+dependencies {
+    implementation project(':domain')
+    implementation project(':adapters:persistence:adapter-maria')
+    implementation project(':adapters:web:adapter-client-api')
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+
+// Spring REST Docs 설정
 ext {
     snippetsDir = file('build/generated-snippets')
 }
@@ -20,16 +35,3 @@ bootJar {
     }
 }
 
-bootJar.enabled = true
-jar.enabled = false
-
-// client Application 을 구성하는 의존성
-dependencies {
-    implementation project(':domain')
-    implementation project(':adapters:persistence:adapter-maria')
-    implementation project(':adapters:web:adapter-client-api')
-    implementation 'org.springframework.boot:spring-boot-starter'
-
-    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
-    asciidoctor 'io.spring.asciidoctor:spring-asciidoctor-extensions-block-switch:0.5.1.RELEASE'
-}
