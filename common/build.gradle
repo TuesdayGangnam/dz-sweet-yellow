@@ -4,5 +4,6 @@ jar.enabled = true
 dependencies {
     implementation 'org.springframework:spring-context'
     implementation 'org.springframework:spring-tx'
-    api group: 'com.google.guava', name: 'guava', version: '29.0-jre'
+
+    api 'com.google.guava:guava:29.0-jre'
 }
