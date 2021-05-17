@@ -21,13 +21,13 @@ public class Group {
     private String groupName;
 
     @Column(name = "minimum_capacity", nullable = false)
-    private int minimumCapacity;
+    private Integer minimumCapacity;
 
     @Column(name = "maximum_capacity", nullable = false)
-    private int maximumCapacity;
+    private Integer maximumCapacity;
 
     @Column(name = "number_of_participants", nullable = false)
-    private int numberOfParticipants;
+    private Integer numberOfParticipants;
 
     @Column(name = "description")
     private String description;
