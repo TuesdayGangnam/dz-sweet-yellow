@@ -12,5 +12,5 @@ public class Content {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "content_id")
-    private long id;
+    private long content_id;
 }
