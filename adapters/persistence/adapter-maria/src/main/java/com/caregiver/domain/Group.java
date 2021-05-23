@@ -20,11 +20,8 @@ public class Group {
     @Column(name = "group_name", nullable = false)
     private String groupName;
 
-    @Column(name = "minimum_capacity", nullable = false)
-    private int minimumCapacity;
-
-    @Column(name = "maximum_capacity", nullable = false)
-    private int maximumCapacity;
+    @Column(name = "capacity", nullable = false)
+    private int capacity;
 
     @Column(name = "number_of_participants", nullable = false)
     private int numberOfParticipants;
