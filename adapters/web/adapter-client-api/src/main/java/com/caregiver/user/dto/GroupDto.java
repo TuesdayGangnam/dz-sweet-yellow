@@ -17,15 +17,15 @@ public class GroupDto {
     @NotBlank
     private String groupName;
 
-    @Min(3)
-    @Max(10)
-    private int numberOfParticipants;
+    @Min(value = 3, message = "최소 3인 이상 설정 가능합니다.")
+    @Max(value = 10, message = "최대 10인 이상만 설정 가능합니다.")
+    private int capacity;
 
     private String description;
 
-    public CreateRequest(String groupName, int numberOfParticipants, String description) {
+    public CreateRequest(String groupName, int capacity, String description) {
       this.groupName = groupName;
-      this.numberOfParticipants = numberOfParticipants;
+      this.capacity = capacity;
       this.description = description;
     }
   }
