@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,6 +25,7 @@ public class Group {
     private int capacity;
 
     @Column(name = "number_of_participants", nullable = false)
+    @ColumnDefault("1")
     private int numberOfParticipants;
 
     @Column(name = "description")
