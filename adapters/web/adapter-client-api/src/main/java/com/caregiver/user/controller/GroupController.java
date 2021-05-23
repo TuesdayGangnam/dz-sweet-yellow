@@ -21,7 +21,7 @@ public class GroupController {
    */
   @PostMapping("")
   public ResponseEntity create(
-      @RequestBody @Valid GroupDto.createRequest request) {
+      @RequestBody @Valid GroupDto.CreateRequest request) {
 
     return ResponseEntity
         .status(HttpStatus.CREATED)
