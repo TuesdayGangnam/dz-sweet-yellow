@@ -21,22 +21,22 @@ public class Group {
     private String groupName;
 
     @Column(name = "minimum_capacity", nullable = false)
-    private Integer minimumCapacity;
+    private int minimumCapacity;
 
     @Column(name = "maximum_capacity", nullable = false)
-    private Integer maximumCapacity;
+    private int maximumCapacity;
 
     @Column(name = "number_of_participants", nullable = false)
-    private Integer numberOfParticipants;
+    private int numberOfParticipants;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name = "deleted", nullable = false)
-    private Boolean deleted;
+    @Column(name = "is_deleted", nullable = false)
+    private boolean isDeleted;
 
-    @Column(name = "closed", nullable = false)
-    private Boolean closed;
+    @Column(name = "is_closed", nullable = false)
+    private boolean isClosed;
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
