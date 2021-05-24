@@ -2,6 +2,7 @@ package com.caregiver.user.controller;
 
 import com.caregiver.common.BaseControllerTest;
 import com.caregiver.user.dto.MobileAuthenticationDto;
+import com.caregiver.user.port.in.SendAccreditationNumberUsecase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.web.servlet.ResultActions;
@@ -28,6 +30,9 @@ class MobileAuthenticationControllerTest extends BaseControllerTest {
 
   @Autowired
   private ObjectMapper objectMapper;
+
+  @MockBean
+  private SendAccreditationNumberUsecase sendAccreditationNumberUsecase;
 
   @ParameterizedTest
   @MethodSource("provideInvalidMobileNumbers")

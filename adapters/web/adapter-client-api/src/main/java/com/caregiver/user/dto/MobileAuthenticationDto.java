@@ -1,5 +1,6 @@
 package com.caregiver.user.dto;
 
+import com.caregiver.user.port.in.SendAccreditationNumberUsecase;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,14 @@ public class MobileAuthenticationDto {
     public Request(String mobile) {
       this.mobile = mobile;
     }
+
+    /**
+     * SendAccreditationNumberCommand 객체를 리턴합니다.
+     */
+    public SendAccreditationNumberUsecase.SendAccreditationNumberCommand generateCommand() {
+      return new SendAccreditationNumberUsecase.SendAccreditationNumberCommand(this.getMobile());
+    }
+
   }
 
 }

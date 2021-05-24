@@ -24,7 +24,7 @@ subprojects {
 
     ext {
         springBootVersion = "2.3.4.RELEASE"
-        mockitoVersion = "3.3.3"
+        mockitoVersion = "3.4.0"
         lombokVersion = "1.18.12"
     }
 
@@ -46,6 +46,7 @@ subprojects {
         testCompileOnly 'org.assertj:assertj-core:3.16.0'
         testImplementation "org.mockito:mockito-core:${mockitoVersion}"
         testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
+        testImplementation 'org.mockito:mockito-inline:3.8.0'
     }
 
     dependencyManagement {
