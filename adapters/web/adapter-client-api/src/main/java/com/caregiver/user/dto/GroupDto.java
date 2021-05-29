@@ -19,7 +19,7 @@ public class GroupDto {
         private final String groupName;
 
         @Min(value = 3, message = "최소 3인 이상 설정 가능합니다.")
-        @Max(value = 10, message = "최대 10인 이상만 설정 가능합니다.")
+        @Max(value = 10, message = "최대 10인 까지만 설정 가능합니다.")
         private final int capacity;
 
         private final String description;
