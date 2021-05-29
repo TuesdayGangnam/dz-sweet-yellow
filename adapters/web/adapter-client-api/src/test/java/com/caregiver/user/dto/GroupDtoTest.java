@@ -54,13 +54,13 @@ class GroupDtoTest {
                     new GroupDto.CreateRequest("그룹", 11, "");
 
             @Test
-            @DisplayName("최소 3인 이상 설정 가능합니다. 라는 에러 메시지를 반환한다.")
+            @DisplayName("최대 10인 까지만 설정 가능합니다. 라는 에러 메시지를 반환한다.")
             public void it_02() {
                 Set<ConstraintViolation<GroupDto.CreateRequest>> constraintViolations =
                         validator.validate(createRequest);
 
                 assertEquals(1, constraintViolations.size());
-                assertEquals("최대 10인 이상만 설정 가능합니다.", constraintViolations
+                assertEquals("최대 10인 까지만 설정 가능합니다.", constraintViolations
                         .iterator().next().getMessage());
             }
         }
