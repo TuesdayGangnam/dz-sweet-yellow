@@ -14,7 +14,7 @@ public class SendAccreditationNumberService implements SendAccreditationNumberUs
   @Override
   public void send(SendAccreditationNumberCommand sendAccreditationNumberCommand) {
 
-    final var accreditationNumber = generate(100_000, 1000_000);
+    final var accreditationNumber = generate(1_000, 10_000);
 
   }
 
