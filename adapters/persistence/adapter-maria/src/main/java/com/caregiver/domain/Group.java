@@ -3,6 +3,7 @@ package com.caregiver.domain;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,23 +21,21 @@ public class Group {
     @Column(name = "group_name", nullable = false)
     private String groupName;
 
-    @Column(name = "minimum_capacity", nullable = false)
-    private Integer minimumCapacity;
-
-    @Column(name = "maximum_capacity", nullable = false)
-    private Integer maximumCapacity;
+    @Column(name = "capacity", nullable = false)
+    private int capacity;
 
     @Column(name = "number_of_participants", nullable = false)
-    private Integer numberOfParticipants;
+    @ColumnDefault("1")
+    private int numberOfParticipants;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name = "deleted", nullable = false)
-    private Boolean deleted;
+    @Column(name = "is_deleted", nullable = false)
+    private boolean isDeleted;
 
-    @Column(name = "closed", nullable = false)
-    private Boolean closed;
+    @Column(name = "is_closed", nullable = false)
+    private boolean isClosed;
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
