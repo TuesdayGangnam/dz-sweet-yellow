@@ -7,7 +7,7 @@ import com.amazonaws.services.sns.model.MessageAttributeValue;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
 import com.caregiver.common.BaseConfiguration;
-import com.caregiver.config.AwsDefaultCredential;
+import com.caregiver.config.AwsSnsClient;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -18,10 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 문자메세지 발송 테스트.
  */
 @SuppressWarnings({"NonAsciiCharacters", "CheckStyle"})
-public class SendSmsMessageTest extends BaseConfiguration {
+public class SendSmsMessageAdapterTest extends BaseConfiguration {
 
   @Autowired
-  AwsDefaultCredential awsDefaultCredential;
+  AwsSnsClient awsSnsClient;
 
   /**
    * 테스트가 실행될 경우 SMS 문자 메세지를 발송합니다.
@@ -33,10 +33,10 @@ public class SendSmsMessageTest extends BaseConfiguration {
   @DisplayName("aws Sms 메일 발송을 테스트하라")
   public void aws_sms_메일_발송을_테스트하라() {
 
-    final var amazonSns = awsDefaultCredential.createSnsClient();
+    final var snsClient = awsSnsClient.snsClient();
 
-    final var publishResult = sendSmsMessage(amazonSns, "안녕하세요 이지훈입니다. 문자메세지 테스트",
-        "+8201093793259", awsDefaultCredential.messageAttributeValue());
+    final var publishResult = sendSmsMessage(snsClient, "안녕하세요 이지훈입니다. 문자메세지 테스트",
+        "+8201012345678", awsSnsClient.getMessageAttributeValue());
 
     assertThat(publishResult.getMessageId()).isNotBlank();
   }
