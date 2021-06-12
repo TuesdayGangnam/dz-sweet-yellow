@@ -25,7 +25,7 @@ public class MobileAuthenticationController {
   /**
    * 휴대폰 인증번호 발송 요청 합니다.
    *
-   * @param request 인증번호를 요청하기위한 Dto
+   * @param request 인증번호를 요청하기위한 요청
    */
   @PostMapping("/accreditation-number/send-sms")
 
