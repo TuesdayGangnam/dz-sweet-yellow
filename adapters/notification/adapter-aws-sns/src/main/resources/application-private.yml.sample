@@ -1,0 +1,7 @@
+
+caregiver:
+  aws:
+    access-key: ${caregiver.aws.secret-key}
+    secret-key: ${caregiver.aws.access-key}
+    sns:
+      arn: ${caregiver.aws.sns.arn}
