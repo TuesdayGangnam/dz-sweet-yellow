@@ -1,6 +1,7 @@
 package com.caregiver.port.in;
 
 import com.amazonaws.services.sns.model.PublishRequest;
+import com.caregiver.common.annotation.NotificationAdapter;
 import com.caregiver.config.AwsSnsClient;
 import com.caregiver.user.port.out.NotificationSmsPort;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 /**
  * SMS 문자 메세지를 보냅니다.
  */
+@NotificationAdapter
 @RequiredArgsConstructor
 public class SendSmsMessageAdapter implements NotificationSmsPort {
 
