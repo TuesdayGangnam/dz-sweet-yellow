@@ -6,6 +6,7 @@ include 'common'
 include 'domain'
 
 // adapter layer
+include 'adapters:notification:adapter-aws-sns'
 include 'adapters:persistence:adapter-maria'
 include 'adapters:web:adapter-client-api'
 include 'adapters:web:adapter-admin-api'
@@ -16,4 +17,3 @@ include 'applications:admin-api'
 
 // test support
 include 'test-support'
-
