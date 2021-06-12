@@ -4,11 +4,8 @@ spring:
 
 caregiver:
   aws:
-    #service-endpoint:
-    signing-region: ap-northeast-2
+    signing-region: ap-northeast-1
     access-key: ${caregiver.aws.secret-key}
     secret-key: ${caregiver.aws.access-key}
     sns:
       arn: ${caregiver.aws.sns.arn}
-
-
