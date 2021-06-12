@@ -3,6 +3,7 @@ jar.enabled = true
 
 dependencies {
     implementation project(':common')
+    implementation project(':domain')
     implementation project(':test-support')
     implementation 'com.amazonaws:aws-java-sdk-sns'
 }
