@@ -24,7 +24,7 @@ subprojects {
 
     ext {
         springBootVersion = "2.3.4.RELEASE"
-        mockitoVersion = "3.4.0"
+        mockitoVersion = "3.11.1"
         lombokVersion = "1.18.12"
         awsSdkVersion = "1.12.5"
     }
