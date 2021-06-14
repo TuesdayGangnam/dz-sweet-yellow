@@ -8,6 +8,7 @@ include 'domain'
 // adapter layer
 include 'adapters:notification:adapter-aws-sns'
 include 'adapters:persistence:adapter-maria'
+include 'adapters:persistence:adapter-s3'
 include 'adapters:web:adapter-client-api'
 include 'adapters:web:adapter-admin-api'
 
