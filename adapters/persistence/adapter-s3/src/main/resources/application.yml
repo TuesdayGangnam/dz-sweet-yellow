@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    include: private
+
+cloud:
+  aws:
+    s3:
+      bucket: caregiver-salon
+    region:
+      static: ap-northeast-2
+    credentials:
+      access-key: ${caregiver.aws.secret-key}
+      secret-key: ${caregiver.aws.access-key}
+    stack:
+      auto: false
