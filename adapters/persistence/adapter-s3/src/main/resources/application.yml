@@ -5,6 +5,7 @@ spring:
 cloud:
   aws:
     s3:
+      image-path: image/
       bucket: caregiver-salon
     region:
       static: ap-northeast-2
