@@ -4,6 +4,7 @@ import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,14 @@ public class AmazonS3Config {
 
   @Value("${cloud.aws.region.static}")
   private String region;
+
+  @Getter
+  @Value("${cloud.aws.s3.bucket}")
+  private String bucket;
+
+  @Getter
+  @Value("${cloud.aws.s3.image-path}")
+  private String imagePath;
 
   @Bean
   @Primary
