@@ -29,19 +29,18 @@ public class ImageUploadController {
     File file = convert(multipartFile)
         .orElseThrow(() -> new IllegalArgumentException("MultipartFile -> File로 전환이 실패했습니다."));
 
-    imageUploadUseCase.upload(ImageUploadUseCase.RequestCommand.of(file, "static"));
+    imageUploadUseCase.upload(ImageUploadUseCase.RequestCommand.of(file));
 
     return ResponseEntity
         .status(HttpStatus.CREATED)
         .build();
   }
 
-    /**
-     *
-     * @param file
-     * @return
-     * @throws IOException
-     */
+  /**
+   * @param file
+   * @return
+   * @throws IOException
+   */
   private Optional<File> convert(MultipartFile file) throws IOException {
     File convertFile = new File(file.getOriginalFilename());
     if (convertFile.createNewFile()) {

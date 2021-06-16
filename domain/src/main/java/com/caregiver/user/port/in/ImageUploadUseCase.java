@@ -23,10 +23,9 @@ public interface ImageUploadUseCase {
   @RequiredArgsConstructor
   class RequestCommand {
     private final File uploadFile;
-    private final String dirName;
 
-    public static RequestCommand of(File uploadFile, String dirName) {
-      return new RequestCommand(uploadFile, dirName);
+    public static RequestCommand of(File uploadFile) {
+      return new RequestCommand(uploadFile);
     }
   }
 
