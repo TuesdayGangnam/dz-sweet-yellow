@@ -7,7 +7,7 @@ import com.caregiver.user.port.in.ImageUploadUseCase.RequestCommand;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class UploadImageAdapterTest extends BaseConfiguration {
   @BeforeEach
   public void setUp(@TempDir File tempDir) throws IOException {
     File file = new File(tempDir, "test");
-    Files.write(file.toPath(), Arrays.asList("x", "y", "z"));
+    Files.write(file.toPath(), List.of("x", "y", "z"));
 
     requestCommand = RequestCommand.of(file);
   }
