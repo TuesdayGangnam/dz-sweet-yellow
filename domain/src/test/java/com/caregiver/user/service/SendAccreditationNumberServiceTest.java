@@ -1,26 +1,34 @@
 
 package com.caregiver.user.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.caregiver.common.util.AccreditationNumberUtil;
 import com.caregiver.user.port.in.SendAccreditationNumberUsecase;
+import com.caregiver.user.port.out.NotificationSmsPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-@SuppressWarnings("NonAsciiCharacters")
+@ExtendWith(MockitoExtension.class)
+@SuppressWarnings({"NonAsciiCharacters", "CheckStyle"})
 @DisplayName("SendAccreditationNumberService 클래스")
 class SendAccreditationNumberServiceTest {
 
   private SendAccreditationNumberUsecase sendAccreditationNumberService;
 
+  @Mock
+  NotificationSmsPort notificationSmsPort;
+
   @BeforeEach
   void init() {
-    this.sendAccreditationNumberService = new SendAccreditationNumberService();
+    this.sendAccreditationNumberService = new SendAccreditationNumberService(notificationSmsPort);
   }
 
   @Nested
@@ -35,7 +43,7 @@ class SendAccreditationNumberServiceTest {
     }
 
     @Nested
-    @DisplayName("가입되지 않은 휴대폰 번호로 호출 되었을 경우")
+    @DisplayName("휴대폰 번호로 호출 되었을 경우")
     class Context_01 {
 
       private final int origin = 1_000;
@@ -44,10 +52,10 @@ class SendAccreditationNumberServiceTest {
       @Test
       @DisplayName("인증번호를 생성한다")
       public void it_01() {
-        final String 가입되지_않은_휴대폰_번호 = "010-1234-5678";
+        final String 휴대폰_번호 = "010-1234-5678";
         final int 인증번호 = 1234;
 
-        subject(가입되지_않은_휴대폰_번호);
+        subject(휴대폰_번호);
 
         try (MockedStatic<AccreditationNumberUtil> utilities =
                  Mockito.mockStatic(AccreditationNumberUtil.class)) {
