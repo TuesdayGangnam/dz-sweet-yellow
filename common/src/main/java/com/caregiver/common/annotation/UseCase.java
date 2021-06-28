@@ -8,12 +8,19 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * Domain layer 에서 사용될 Stereo Type 애노테이션.
+ */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
 public @interface UseCase {
 
+  /**
+   * Stereo Type 지정.
+   */
   @AliasFor(annotation = Component.class)
   String value() default "";
 }

@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+/**
+ * S3 환경 변수 Configuration.
+ */
 @Configuration
 public class AmazonS3Config {
 
@@ -30,12 +33,18 @@ public class AmazonS3Config {
   @Value("${cloud.aws.s3.image-path}")
   private String imagePath;
 
+  /**
+   * AWS 기본 인증이 완료된 Bean을 리턴합니다.
+   */
   @Bean
   @Primary
   public BasicAWSCredentials awsCredentialsProvider() {
     return new BasicAWSCredentials(accessKey, secretKey);
   }
 
+  /**
+   * AWS S3 Bean 을 리턴합니다.
+   */
   @Bean
   public AmazonS3 amazonS3() {
     return AmazonS3ClientBuilder.standard()
