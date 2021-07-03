@@ -3,6 +3,7 @@ package com.caregiver.port.in;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.caregiver.common.annotation.PersistenceAdapter;
 import com.caregiver.config.AmazonS3Config;
 import com.caregiver.user.port.in.ImageUploadUseCase.RequestCommand;
 import com.caregiver.user.port.in.ImageUploadUseCase.ResponseCommand;
@@ -12,9 +13,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 이미지 업로드 어뎁터
+ * 이미지 업로드 어뎁터.
  */
 @Slf4j
+@PersistenceAdapter
 @RequiredArgsConstructor
 public class UploadImageAdapter implements ImageUploadPort {
 
@@ -43,8 +45,8 @@ public class UploadImageAdapter implements ImageUploadPort {
    * 파일을 S3 에 업로드 합니다.
    *
    * @param uploadFile 업로드할 파일 객체
-   * @param fileName 업로드할 파일명
-   * @param bucket 업로드한 버킷
+   * @param fileName   업로드할 파일명
+   * @param bucket     업로드한 버킷
    * @return 업로드한 파일의 경로
    */
   private String putS3(File uploadFile, String fileName, String bucket) {

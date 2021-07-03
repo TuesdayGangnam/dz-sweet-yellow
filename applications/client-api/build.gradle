@@ -8,6 +8,7 @@ dependencies {
     implementation project(':domain')
     implementation project(':adapters:notification:adapter-aws-sns')
     implementation project(':adapters:persistence:adapter-maria')
+    implementation project(':adapters:persistence:adapter-s3')
     implementation project(':adapters:web:adapter-client-api')
     implementation 'org.springframework.boot:spring-boot-starter'
 

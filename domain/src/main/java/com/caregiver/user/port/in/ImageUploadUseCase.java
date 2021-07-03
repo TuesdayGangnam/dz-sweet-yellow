@@ -1,15 +1,12 @@
 package com.caregiver.user.port.in;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Optional;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 이미지 업로드 UseCase
+ * 이미지 업로드 UseCase.
  */
 public interface ImageUploadUseCase {
 

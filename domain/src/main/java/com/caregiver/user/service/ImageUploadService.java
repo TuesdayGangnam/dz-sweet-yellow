@@ -5,6 +5,9 @@ import com.caregiver.user.port.in.ImageUploadUseCase;
 import com.caregiver.user.port.out.ImageUploadPort;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 이미지 업로드 service.
+ */
 @RequiredArgsConstructor
 @UseCase
 public class ImageUploadService implements ImageUploadUseCase {
