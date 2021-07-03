@@ -16,8 +16,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @RequiredArgsConstructor
-@SuppressWarnings("SpringFacetCodeInspection")
-public class AwsDefaultCredential implements AwsSnsClientFactory {
+public class AwsSnsDefaultCredential implements AwsSnsClientFactory {
 
   private final AwsProperties awsProperties;
 
