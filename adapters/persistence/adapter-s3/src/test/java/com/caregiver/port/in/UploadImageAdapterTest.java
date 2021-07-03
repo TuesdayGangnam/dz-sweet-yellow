@@ -2,9 +2,9 @@ package com.caregiver.port.in;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import com.amazonaws.services.s3.AmazonS3Client;
 import com.caregiver.common.BaseConfiguration;
 import com.caregiver.config.AmazonS3Config;
+import com.caregiver.config.AwsS3Client;
 import com.caregiver.user.port.in.ImageUploadUseCase.RequestCommand;
 import com.caregiver.user.port.in.ImageUploadUseCase.ResponseCommand;
 import java.io.File;
@@ -17,13 +17,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * UploadImageAdapter 를 테스트 합니다.
+ */
+@SuppressWarnings({"NonAsciiCharacters", "CheckStyle"})
 public class UploadImageAdapterTest extends BaseConfiguration {
 
   @Autowired
-  AmazonS3Client amazonS3Client;
+  AmazonS3Config amazonS3Config;
 
   @Autowired
-  AmazonS3Config amazonS3Config;
+  AwsS3Client amazonS3Client;
 
   RequestCommand requestCommand;
 
@@ -38,7 +42,7 @@ public class UploadImageAdapterTest extends BaseConfiguration {
   @Test
   @DisplayName("aws S3 이미지 업로드를 테스트하라")
   public void aws_s3_이미지_업로드를_테스트하라() {
-    UploadImageAdapter uploadImageAdapter = new UploadImageAdapter(amazonS3Client, amazonS3Config);
+    UploadImageAdapter uploadImageAdapter = new UploadImageAdapter(amazonS3Config, amazonS3Client);
     ResponseCommand upload = uploadImageAdapter.upload(requestCommand);
 
     assertThat(upload.getUploadImageUrl()).isNotBlank();
