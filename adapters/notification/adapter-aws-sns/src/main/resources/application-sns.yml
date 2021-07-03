@@ -1,6 +1,6 @@
 spring:
   profiles:
-    include: private
+    include: sns-private
 
 caregiver:
   aws:

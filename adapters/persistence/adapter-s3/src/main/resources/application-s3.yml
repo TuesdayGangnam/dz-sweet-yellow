@@ -1,6 +1,6 @@
 spring:
   profiles:
-    include: private
+    include: s3-private
 
 cloud:
   aws:
@@ -14,3 +14,5 @@ cloud:
       secret-key: ${caregiver.aws.access-key}
     stack:
       auto: false
+
+logging.level.com.amazonaws.util.EC2MetadataUtils: error
