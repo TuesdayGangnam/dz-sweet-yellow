@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Primary;
 @RequiredArgsConstructor
 public class AwsS3DefaultCredential implements AmazonS3ClientFactory {
 
-  private final AmazonS3Config amazonS3Config;
+  private final AmazonS3Properties amazonS3Properties;
 
   /**
    * AWS 기본 인증이 완료된 Bean을 리턴합니다.
@@ -26,14 +26,14 @@ public class AwsS3DefaultCredential implements AmazonS3ClientFactory {
   @Bean
   @Primary
   public BasicAWSCredentials awsCredentialsProvider() {
-    return new BasicAWSCredentials(amazonS3Config.getAccessKey(), amazonS3Config.getSecretKey());
+    return new BasicAWSCredentials(amazonS3Properties.getAccessKey(), amazonS3Properties.getSecretKey());
   }
 
   @Bean
   @Override
   public AmazonS3 createAmazonS3() {
     return AmazonS3ClientBuilder.standard()
-        .withRegion(amazonS3Config.getRegion())
+        .withRegion(amazonS3Properties.getRegion())
         .withCredentials(new AWSStaticCredentialsProvider(awsCredentialsProvider()))
         .build();
   }

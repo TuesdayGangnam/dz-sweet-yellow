@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Getter
 @Component
-public class AmazonS3Config {
+public class AmazonS3Properties {
 
   @Value("${cloud.aws.credentials.access-key:default-aws-access-key}")
   private String accessKey;

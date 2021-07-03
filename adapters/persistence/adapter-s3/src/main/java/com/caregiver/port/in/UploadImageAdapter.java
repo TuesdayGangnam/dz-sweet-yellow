@@ -3,7 +3,7 @@ package com.caregiver.port.in;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.caregiver.common.annotation.PersistenceAdapter;
-import com.caregiver.config.AmazonS3Config;
+import com.caregiver.config.AmazonS3Properties;
 import com.caregiver.config.AwsS3Client;
 import com.caregiver.user.port.in.ImageUploadUseCase.RequestCommand;
 import com.caregiver.user.port.in.ImageUploadUseCase.ResponseCommand;
@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class UploadImageAdapter implements ImageUploadPort {
 
-  private final AmazonS3Config amazonS3Config;
+  private final AmazonS3Properties amazonS3Properties;
   private final AwsS3Client amazonS3Client;
 
   /**
@@ -33,8 +33,8 @@ public class UploadImageAdapter implements ImageUploadPort {
     File uploadFile = command.getUploadFile();
     String uploadImageUrl = putS3(
         uploadFile,
-        amazonS3Config.getImagePath() + uploadFile.getName(),
-        amazonS3Config.getBucket()
+        amazonS3Properties.getImagePath() + uploadFile.getName(),
+        amazonS3Properties.getBucket()
     );
 
     removeNewFile(uploadFile);

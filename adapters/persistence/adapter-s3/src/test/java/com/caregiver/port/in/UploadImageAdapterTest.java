@@ -3,7 +3,7 @@ package com.caregiver.port.in;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import com.caregiver.common.BaseConfiguration;
-import com.caregiver.config.AmazonS3Config;
+import com.caregiver.config.AmazonS3Properties;
 import com.caregiver.config.AwsS3Client;
 import com.caregiver.user.port.in.ImageUploadUseCase.RequestCommand;
 import com.caregiver.user.port.in.ImageUploadUseCase.ResponseCommand;
@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UploadImageAdapterTest extends BaseConfiguration {
 
   @Autowired
-  AmazonS3Config amazonS3Config;
+  AmazonS3Properties amazonS3Properties;
 
   @Autowired
   AwsS3Client amazonS3Client;
@@ -42,7 +42,7 @@ public class UploadImageAdapterTest extends BaseConfiguration {
   @Test
   @DisplayName("aws S3 이미지 업로드를 테스트하라")
   public void aws_s3_이미지_업로드를_테스트하라() {
-    UploadImageAdapter uploadImageAdapter = new UploadImageAdapter(amazonS3Config, amazonS3Client);
+    UploadImageAdapter uploadImageAdapter = new UploadImageAdapter(amazonS3Properties, amazonS3Client);
     ResponseCommand upload = uploadImageAdapter.upload(requestCommand);
 
     assertThat(upload.getUploadImageUrl()).isNotBlank();
