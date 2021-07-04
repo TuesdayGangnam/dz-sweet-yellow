@@ -1,15 +1,5 @@
 package com.caregiver.user.controller;
 
-import com.caregiver.common.BaseControllerTest;
-import com.caregiver.user.port.in.SignUpUseCase;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
-import org.springframework.test.web.servlet.ResultActions;
-
 import static com.caregiver.common.ApiDocumentUtils.getDocumentRequest;
 import static com.caregiver.common.ApiDocumentUtils.getDocumentResponse;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -20,6 +10,16 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWit
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import com.caregiver.common.BaseControllerTest;
+import com.caregiver.user.port.in.SignUpUseCase;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
+import org.springframework.test.web.servlet.ResultActions;
 
 @WebMvcTest(SignUpController.class)
 @DisplayName("SignUpController 클래스는")

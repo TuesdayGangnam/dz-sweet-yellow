@@ -1,9 +1,12 @@
 package com.caregiver.user.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.caregiver.common.BaseControllerTest;
 import com.caregiver.user.dto.MobileAuthenticationDto;
 import com.caregiver.user.port.in.SendAccreditationNumberUsecase;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,10 +20,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.web.servlet.ResultActions;
-
-import java.util.stream.Stream;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(MobileAuthenticationController.class)
 @DisplayName("MobileAuthenticationController 클래스")
