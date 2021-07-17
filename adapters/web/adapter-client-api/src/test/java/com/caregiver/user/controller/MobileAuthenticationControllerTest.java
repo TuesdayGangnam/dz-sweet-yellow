@@ -25,7 +25,7 @@ import org.springframework.test.web.servlet.ResultActions;
 @DisplayName("MobileAuthenticationController 클래스")
 class MobileAuthenticationControllerTest extends BaseControllerTest {
 
-  private static final String URL = "/v1/mobile/accreditation-number/send-sms";
+  private static final String URL = "/v1/mobile/accreditation-number/accept-sms";
 
   @Autowired
   private ObjectMapper objectMapper;

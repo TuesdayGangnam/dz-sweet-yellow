@@ -2,6 +2,7 @@ package com.caregiver.user.controller;
 
 import com.caregiver.user.dto.MobileAuthenticationDto;
 import com.caregiver.user.port.in.SendAccreditationNumberUsecase;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 /**
- * 휴대폰 인증 컨트롤러
+ * 휴대폰 인증 컨트롤러.
  */
 @RestController
 @RequestMapping("/v1/mobile")
@@ -27,8 +26,7 @@ public class MobileAuthenticationController {
    *
    * @param request 인증번호를 요청하기위한 요청
    */
-  @PostMapping("/accreditation-number/send-sms")
-
+  @PostMapping("/accreditation-number/accept-sms")
   public ResponseEntity<?> acceptAccreditationNumber(
       @RequestBody @Valid MobileAuthenticationDto.Request request) {
 

@@ -1,5 +1,7 @@
-bootJar.enabled = false
-jar.enabled = true
+apply plugin: 'org.asciidoctor.convert'
+
+//bootJar.enabled = false
+//jar.enabled = true
 
 dependencies {
     implementation project(':domain')
@@ -7,4 +9,29 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
+
+// Spring REST Docs 설정
+ext {
+    snippetsDir = file('build/generated-snippets')
+}
+
+test {
+    outputs.dir snippetsDir
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+}
+
+bootJar {
+    dependsOn asciidoctor
+    from("${asciidoctor.outputDir}/html5") {
+        into "static/docs"
+    }
+}
+

@@ -1,0 +1,17 @@
+== 인증번호 전송
+
+요청한 휴대폰 번호로 인증번호를 전송합니다.
+
+=== HTTP Request
+
+include::{snippets}/user/accreditation-number/accept-sms/http-request.adoc[]
+
+include::{snippets}/user/accreditation-number/accept-sms/request-fields.adoc[]
+
+=== HTTP Response
+
+[caption="",role="primary"]
+.성공
+====
+include::{snippets}/user/accreditation-number/accept-sms/http-response.adoc[]
+====

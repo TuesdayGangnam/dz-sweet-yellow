@@ -183,5 +183,7 @@ HTTP Status 400 (Bad Request) 오류일 경우 입력 요청 값의 상세 오�
 
 == 집사살롱 공통 필드값
 
+include::send-accreditation-number.adoc[]
+
 
 
